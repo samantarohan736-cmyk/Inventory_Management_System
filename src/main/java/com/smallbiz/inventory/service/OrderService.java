@@ -28,6 +28,10 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
+    public List<Order> getOrdersByUserId(Long userId) {
+        return orderRepository.findByUserId(userId);
+    }
+
     public Order getOrderById(Long id) {
         return orderRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Order not found with id " + id));
@@ -36,6 +40,9 @@ public class OrderService {
     @Transactional
     public Order createOrder(OrderRequest request) {
         Order order = new Order();
+        if (request.getUserId() != null) {
+            order.setUserId(request.getUserId());
+        }
         BigDecimal totalAmount = BigDecimal.ZERO;
 
         for (OrderItemRequest itemRequest : request.getItems()) {

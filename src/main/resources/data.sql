@@ -1,0 +1,5 @@
+INSERT IGNORE INTO users (name, email, password, role) VALUES ('Admin', 'admin@example.com', 'admin123', 'ADMIN');
+UPDATE products SET image_url='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500', category='Electronics', rating=4.5 WHERE id=1;
+UPDATE products SET image_url='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500', category='Audio', rating=4.8 WHERE id=2;
+UPDATE products SET image_url='https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500', category='Footwear', rating=4.2 WHERE id=3;
+UPDATE products SET image_url='https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=500', category='Accessories', rating=4.6 WHERE id>3;

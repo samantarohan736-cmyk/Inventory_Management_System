@@ -15,4 +15,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     // For reporting recent orders
     @Query("SELECT o FROM OrderTable o WHERE o.orderDate > :date")
     List<Order> findByOrderDateAfter(@Param("date") LocalDateTime date);
+
+    List<Order> findByUserId(Long userId);
 }

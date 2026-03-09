@@ -25,16 +25,27 @@ public class Product {
     @Column(nullable = false)
     private Integer stockQuantity;
 
+    @Column(length = 1000)
+    private String imageUrl;
+
+    private String category;
+
+    private Double rating;
+
     // Constructors
     public Product() {
     }
 
-    public Product(String name, String sku, String description, BigDecimal price, Integer stockQuantity) {
+    public Product(String name, String sku, String description, BigDecimal price, Integer stockQuantity,
+            String imageUrl, String category, Double rating) {
         this.name = name;
         this.sku = sku;
         this.description = description;
         this.price = price;
         this.stockQuantity = stockQuantity;
+        this.imageUrl = imageUrl;
+        this.category = category;
+        this.rating = rating;
     }
 
     // Getters and Setters
@@ -84,5 +95,29 @@ public class Product {
 
     public void setStockQuantity(Integer stockQuantity) {
         this.stockQuantity = stockQuantity;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 }
